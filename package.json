@@ -1,0 +1,50 @@
+{
+  "name": "scratch",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "^1.0.13"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "eslint": "^4.7.1",
+    "eslint-config-majestic": "^7.3.4",
+    "eslint-plugin-class-property": "^1.0.6",
+    "eslint-plugin-compat": "^1.0.4",
+    "eslint-plugin-css-modules": "^2.7.5",
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.1.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-more": "^0.3.1",
+    "eslint-plugin-mysticatea": "^4.2.2",
+    "eslint-plugin-optimize-regex": "^1.1.4",
+    "eslint-plugin-prefer-class-properties": "^1.0.0",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-sort-class-members": "^1.2.0",
+    "eslint-plugin-unicorn": "^2.1.2",
+    "eslint-plugin-variables": "^1.0.1",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.3.1",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-import": "^11.0.0",
+    "postcss-url": "^7.1.2",
+    "react-app-rewired": "^1.2.9",
+    "stylelint": "^8.1.1"
+  },
+  "resolutions": {
+    "eslint": "^4.7.1",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-config-react-app": "./empty-module"
+  }
+}
