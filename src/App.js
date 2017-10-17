@@ -12,7 +12,7 @@ const GithubIcon = () => (
   </svg>
 );
 
-const AppBarTest = () => (
+const TopBar = () => (
   <AppBar title="React Toolbox" leftIcon={<Menu className={styles.logo}/>} rightIcon={<GithubIcon/>}>
     <Navigation type="horizontal">
       <Link href="#" label="Inbox" icon="inbox"/>
@@ -24,7 +24,7 @@ const AppBarTest = () => (
 class App extends Component {
   renderHeader() {
     return (
-      <AppBarTest/>
+      <TopBar/>
     );
   }
 
