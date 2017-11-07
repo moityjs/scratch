@@ -20,9 +20,7 @@
     "stylelint": "stylelint src/**/*.css",
     "eslint": "eslint src",
     "lintfix": "npm run -s stylelint -- --fix & npm run -s eslint -- --fix || true",
-    "precommit": "lint-staged",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "src/**/*.js": [
@@ -65,7 +63,6 @@
     "postcss-url": "^7.1.2",
     "react-app-rewired": "^1.2.9",
     "react-scripts": "^1.0.13",
-    "react-styleguidist": "^6.0.27",
     "stylelint": "^8.1.1"
   },
   "resolutions": {
