@@ -20,7 +20,11 @@
     "stylelint": "stylelint src/**/*.css",
     "eslint": "eslint src",
     "lintfix": "npm run -s stylelint -- --fix & npm run -s eslint -- --fix || true",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "yarn_if_lock_changed": "git diff-tree -r --name-only --no-commit-id \"@{1}\" \"@\" | grep --quiet yarn.lock && yarn || true",
+    "postcheckout": "npm run -s yarn_if_lock_changed",
+    "postmerge": "npm run -s yarn_if_lock_changed",
+    "postrewrite": "npm run -s yarn_if_lock_changed"
   },
   "lint-staged": {
     "src/**/*.js": [
