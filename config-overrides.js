@@ -1,6 +1,7 @@
 const path = require('path');
 const { getLoader } = require('react-app-rewired');
 const variables = require('./reactToolboxVariables');
+const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 
 // this is the path of eslint-loader `index.js`
 const ESLINT_PATH = `eslint-loader${path.sep}index.js`;
@@ -57,6 +58,7 @@ module.exports = function configOverrides(config, env) {
   rewiredConfig = rewireEslint(rewiredConfig, env);
   rewiredConfig = rewireCSSModules(rewiredConfig, env);
   rewiredConfig = rewirePostCSS(rewiredConfig, env);
+  rewiredConfig = rewireReactHotLoader(rewiredConfig, env);
 
   return rewiredConfig;
 };

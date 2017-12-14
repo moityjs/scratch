@@ -18,15 +18,15 @@ class App extends Component {
   };
 
   toggleDrawerActive = () => {
-    this.setState({ drawerActive: !this.state.drawerActive });
+    this.setState(({ drawerActive }) => ({ drawerActive: !drawerActive }));
   };
 
   toggleDrawerPinned = () => {
-    this.setState({ drawerPinned: !this.state.drawerPinned });
+    this.setState(({ drawerPinned }) => ({ drawerPinned: !drawerPinned }));
   };
 
   toggleSidebar = () => {
-    this.setState({ sidebarPinned: !this.state.sidebarPinned });
+    this.setState(({ sidebarPinned }) => ({ sidebarPinned: !sidebarPinned }));
   };
 
   render() {
@@ -45,8 +45,20 @@ class App extends Component {
             onOverlayClick={this.toggleDrawerActive}
           >
             <Navigation type="vertical" className={styles.navigation}>
-              <NavLink to="/inbox"><div><Inbox/> Inbox</div></NavLink>
-              <NavLink to="/profile"><div><Person/> Profile</div></NavLink>
+              <NavLink to="/inbox">
+                <div>
+                  <Inbox/>
+                  {' '}
+                  Inbox
+                </div>
+              </NavLink>
+              <NavLink to="/profile">
+                <div>
+                  <Person/>
+                  {' '}
+                  Profile
+                </div>
+              </NavLink>
             </Navigation>
           </NavDrawer>
           <Panel>
@@ -57,22 +69,43 @@ class App extends Component {
               onLeftIconClick={this.toggleDrawerActive}
             />
             <Route
-              exact path="/" render={() =>
+              exact
+              path="/" render={() =>
                 <div style={{ flex: 1, overflowY: 'auto', padding: '1.8rem' }}>
-                  <h1>Main Content</h1>
-                  <p>Main content goes here.</p>
+                  <h1>
+                    Main Content
+                  </h1>
+                  <p>
+                    Main content goes here.
+                  </p>
                   <Checkbox label="Pin drawer" checked={drawerPinned} onChange={this.toggleDrawerPinned}/>
                   <Checkbox label="Show sidebar" checked={sidebarPinned} onChange={this.toggleSidebar}/>
                 </div>
               }
             />
-            <Route path="/inbox" render={() => <div>Inbox</div>}/>
-            <Route path="/profile" render={() => <div>Profile</div>}/>
+            <Route
+              path="/inbox" render={() =>
+                <div>
+                  Inbox
+                </div>
+              }
+            />
+            <Route
+              path="/profile" render={() =>
+                <div>
+                  Profile
+                </div>
+              }
+            />
           </Panel>
           <Sidebar pinned={sidebarPinned} width={5}>
-            <div><IconButton icon={<Close/>} onClick={this.toggleSidebar}/></div>
+            <div>
+              <IconButton icon={<Close/>} onClick={this.toggleSidebar}/>
+            </div>
             <div style={{ flex: 1 }}>
-              <p>Supplemental content goes here.</p>
+              <p>
+                Supplemental content goes here.
+              </p>
             </div>
           </Sidebar>
         </Layout>
