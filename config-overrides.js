@@ -1,7 +1,7 @@
 const path = require('path');
 const { getLoader } = require('react-app-rewired');
-const variables = require('./reactToolboxVariables');
 const rewireReactHotLoader = require('react-app-rewire-hot-loader');
+const variables = require('./reactToolboxVariables');
 
 // this is the path of eslint-loader `index.js`
 const ESLINT_PATH = `eslint-loader${path.sep}index.js`;

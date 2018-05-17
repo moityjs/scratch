@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import AppBar from 'react-toolbox/lib/app_bar';
 import { Checkbox, Layout, NavDrawer, Panel, Sidebar } from 'react-toolbox';
 import { IconButton } from 'react-toolbox/lib/button';
 import Navigation from 'react-toolbox/lib/navigation';
 import { Route, BrowserRouter, NavLink } from 'react-router-dom';
-import Menu from 'mdi-react/MenuIcon';
-import Inbox from 'mdi-react/InboxIcon';
-import Person from 'mdi-react/PersonBoxIcon';
-import Close from 'mdi-react/CloseIcon';
+import * as Icons from './icons';
 import styles from './App.css';
 
-class App extends Component {
+const App = hot(module)(class App extends Component {
   state = {
     drawerActive: false,
     drawerPinned: false,
@@ -41,20 +39,22 @@ class App extends Component {
         <Layout>
           <NavDrawer
             active={drawerActive}
-            pinned={drawerPinned} permanentAt="xxl"
             onOverlayClick={this.toggleDrawerActive}
           >
             <Navigation type="vertical" className={styles.navigation}>
-              <NavLink to="/inbox">
-                <div>
-                  <Inbox/>
-                  {' '}
-                  Inbox
-                </div>
-              </NavLink>
+              <Route path="/inbox">
+                {({ match }) =>
+                  <NavLink to="/inbox" active={!!match}>
+                    <div>
+                      <Icons.Inbox/>
+                      {' '}
+                        Inbox
+                    </div>
+                  </NavLink>}
+              </Route>
               <NavLink to="/profile">
                 <div>
-                  <Person/>
+                  <Icons.Person/>
                   {' '}
                   Profile
                 </div>
@@ -65,7 +65,7 @@ class App extends Component {
             <AppBar
               title="Scratch App"
               className={styles.header}
-              leftIcon={<Menu/>}
+              leftIcon={<Icons.Menu/>}
               onLeftIconClick={this.toggleDrawerActive}
             />
             <Route
@@ -100,7 +100,7 @@ class App extends Component {
           </Panel>
           <Sidebar pinned={sidebarPinned} width={5}>
             <div>
-              <IconButton icon={<Close/>} onClick={this.toggleSidebar}/>
+              <IconButton icon={<Icons.Close/>} onClick={this.toggleSidebar}/>
             </div>
             <div style={{ flex: 1 }}>
               <p>
@@ -112,6 +112,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-}
+});
 
 export default App;
