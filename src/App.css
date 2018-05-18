@@ -1,15 +1,15 @@
 @import 'react-toolbox/lib/colors.css';
 
+:global(svg.mdi-icon) {
+  fill: currentColor;
+}
+
 .header {
   color: var(--color-dark-contrast);
 
   & .navigation {
     & [data-react-toolbox='link'] {
       color: var(--color-dark-contrast);
-    }
-
-    & svg {
-      fill: currentColor;
     }
   }
 }
